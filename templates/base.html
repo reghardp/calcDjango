@@ -1,0 +1,28 @@
+<!doctype html >
+<html style="background-color:#FFFFFF;" text-align:center;>
+<head>
+
+</head>
+<body style="text-align:center;">
+    <title style="text-align:center;">Quote Calculator</title>
+    <div style="display:flex; justify-content: center">
+        <img src="https://autopricing.blob.core.windows.net/static-files/dd-logo.svg" alt="Mountain" align="center" width="200px" />
+    </div> 
+    <h1 style="color:black; text-align:center; font-family:arial; margin-top: 0px;" >Quote Calculator</h1>
+    <p style="color:black; text-align:center; font-family:arial;">
+        <button onclick="window.location.href='https://autopricing.blob.core.windows.net/template/Azure_Cost_Input_Template.xlsx';">Download Template</button>
+    </p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <button type="submit">Upload</button>
+      </form>
+
+      {% if uploaded_file_url %}
+        <p style="color:black; text-align:center; font-family:arial;">
+          <button onclick="window.location.href='{{ uploaded_file_url }}';">Download Quote</button>
+      </p>
+      {% endif %} 
+</body>
+</html> 
